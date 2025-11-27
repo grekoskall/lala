@@ -43,7 +43,8 @@ refs.gallery.addEventListener('click', event => {
 
   // !OPEN
   refs.backgroundModal.classList.add('is-active');
-  document.body.classList.add('hide');
+  refs.backgroundModal.scrollTop = 0;
+  refs.gallery.classList.add('previous-content');
 
   // !CLOSE
   window.addEventListener('keydown', event => {
@@ -51,7 +52,7 @@ refs.gallery.addEventListener('click', event => {
       return;
     }
     refs.backgroundModal.classList.remove('is-active');
-    document.body.classList.remove('no-scroll');
+    refs.gallery.classList.remove('previous-content');
     clearModalInfo();
   });
 
@@ -62,7 +63,7 @@ refs.gallery.addEventListener('click', event => {
       return;
     }
     refs.backgroundModal.classList.remove('is-active');
-    document.body.classList.remove('no-scroll');
+    refs.gallery.classList.remove('previous-content');
     clearModalInfo();
   });
 });

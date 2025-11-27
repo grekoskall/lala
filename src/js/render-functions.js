@@ -21,6 +21,11 @@ export function createModalArtistInfo(data) {
     const modalArtistInfo = createArtistCardInfo(data);
 
     refs.modalContent.insertAdjacentHTML('beforeend', modalArtistInfo);
+
+    const tagContainer = document.querySelector('#modal-tags-list');
+    const dynamicTags = createTagItems(data);
+
+    tagContainer.insertAdjacentHTML('beforeend', dynamicTags);
     contentAvailable = true;
   }
 }
@@ -66,11 +71,15 @@ function createArtistCardInfo(artistInfo) {
     <h4 class="modal-info-title">Biography</h4>
     <p class ="modal-info-text">${artistInfo.strBiographyEN}</p>
   </div>
-  <ul class="modal-tags-list">
-    <li class="modal-tag-item">${artistInfo.genres[0]}</li>
-    <li class="modal-tag-item">${artistInfo.genres[1]}</li>
-    <li class="modal-tag-item">${artistInfo.genres[2]}</li>
-    <li class="modal-tag-item">${artistInfo.genres[3]}</li>
+  <ul id="modal-tags-list" class="modal-tags-list">
   </ul>
   </div>`;
+}
+
+function createTagItems(artistInfo) {
+  if (!artistInfo.genres) return '';
+
+  return artistInfo.genres
+    .map(genre => `<li class="modal-tag-item">${genre}</li>`)
+    .join('');
 }
