@@ -5,7 +5,7 @@ import { createModalArtistInfo } from './js/render-functions';
 import { clearModalInfo } from './js/render-functions';
 
 const refs = {
-  gallery: document.querySelector('.gallery'),
+  gallery: document.querySelector('#gallery'),
   backgroundModal: document.querySelector('.background-modal'),
   closeBtn: document.querySelector('.closeBtn'),
 };
@@ -34,6 +34,7 @@ export let artistId = '';
 // !FUCTION OPEN/CLOSE MODAL
 refs.gallery.addEventListener('click', event => {
   event.preventDefault();
+  event.stopImmediatePropagation();
 
   if (event.target.nodeName !== 'BUTTON') {
     return;
@@ -44,7 +45,6 @@ refs.gallery.addEventListener('click', event => {
 
   // !CALL FUNCTION CREATE INFO ABOUT ARTIST IN MODAL
   globalVariables.scrollTop = window.scrollY;
-  document.body.classList.add('no-scroll');
   createModalInfo(artistId);
 
   // !OPEN
@@ -52,8 +52,11 @@ refs.gallery.addEventListener('click', event => {
 
   refs.gallery.classList.add('previous-content');
 
-  // !CLOSE
+
+    // !CLOSE
   window.addEventListener('keydown', event => {
+    event.preventDefault();
+      event.stopImmediatePropagation();
     if (event.code !== 'Escape') {
       return;
     }
@@ -68,7 +71,9 @@ refs.gallery.addEventListener('click', event => {
     });
   });
 
-  refs.backgroundModal.addEventListener('click', event => {
+   refs.backgroundModal.addEventListener('click', event => {
+    event.preventDefault()
+      event.stopImmediatePropagation();
     const targetEl = event.target;
     const button = event.target.closest('.modal-close-btn');
     if (targetEl !== event.currentTarget && !button) {
@@ -84,6 +89,8 @@ refs.gallery.addEventListener('click', event => {
     });
   });
 });
+
+
 
 // !FUNCTION CREATE INFO ABOUT ARTIST IN MODAL
 async function createModalInfo() {
