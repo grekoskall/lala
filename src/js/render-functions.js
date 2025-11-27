@@ -4,6 +4,8 @@ const refs = {
   modalContent: document.querySelector('.modal-content'),
 };
 
+let contentAvailable = false;
+
 export function createGallery(cards) {
   const galleryCardsTemplate = cards
     .map(imgInfo => createGalleryCardTemplate(imgInfo))
@@ -13,13 +15,19 @@ export function createGallery(cards) {
 }
 
 export function createModalArtistInfo(data) {
-  const modalArtistInfo = createArtistCardInfo(data);
+  if (contentAvailable) {
+    return;
+  } else {
+    const modalArtistInfo = createArtistCardInfo(data);
 
-  refs.modalContent.insertAdjacentHTML('beforeend', modalArtistInfo);
+    refs.modalContent.insertAdjacentHTML('beforeend', modalArtistInfo);
+    contentAvailable = true;
+  }
 }
 
 export function clearModalInfo() {
   refs.modalContent.innerHTML = '';
+  contentAvailable = false;
 }
 
 function createGalleryCardTemplate(cardInfo) {
