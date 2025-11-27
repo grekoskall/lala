@@ -18,15 +18,20 @@ body {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  position: fixed;
+  position: absolute;
 
   background: rgba(0, 0, 0, 0.25);
   top: 0;
   left: 0;
   width: 100%;
   padding: 64px 0 64px;
-  height: 130dvh;
+  /* height: 130dvh; */
   z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100dvh; */
   overflow-y: auto;
 }
 
@@ -47,11 +52,11 @@ body {
 }
 
 .modal-artist-info-img {
-  width: 100%; /* підлаштовується під ширину контейнера */
-  height: auto; /* пропорційна висота */
-  max-width: 272px; /* максимальна ширина */
-  max-height: 167px; /* максимальна висота */
-  object-fit: cover; /* обрізає, щоб заповнити контейнер */
+  width: 100%;
+  height: auto;
+  max-width: 272px;
+  max-height: 167px;
+  object-fit: cover;
   object-position: top;
   border-radius: 16px;
   margin-bottom: 32px;
