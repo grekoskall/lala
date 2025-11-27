@@ -1,0 +1,153 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  margin: 36px auto 32px;
+
+  gap: 8px;
+}
+
+.form input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  outline: none;
+  padding: 8px 16px;
+
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+  font-size: 16px;
+}
+
+.form input:hover {
+  border: 1px solid #000;
+}
+.form input:focus {
+  border: 1px solid #4e75ff;
+  color: #2e2f42;
+}
+
+.btn-search {
+  border-radius: 8px;
+  padding: 8px 16px;
+  background: #4e75ff;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.btn-search:hover {
+  background: #6c8cff;
+}
+
+.btn-load-more {
+  margin: 0 auto 20px;
+  width: 125px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background: #4e75ff;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.btn-load-more:hover {
+  background: #6c8cff;
+}
+
+.is-hidden {
+  display: none;
+}
+
+/* GALLERY */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin: 0 auto 30px;
+  max-width: 1128px;
+}
+
+.gallery-item {
+  width: 302px;
+  border: 1px solid #808080;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gallery-card {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.img-descriptions-list {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4px;
+}
+
+.img-descriptions-item {
+  text-align: center;
+}
+
+.img-descriptions-text {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.img-descriptions-data {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+/* LOADER */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #4e75ff;
+  border-bottom-color: transparent;
+  display: none;
+  border-radius: 50%;
+  margin: 20px auto;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
