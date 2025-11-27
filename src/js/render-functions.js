@@ -33,7 +33,7 @@ function createGalleryCardTemplate(cardInfo) {
 }
 
 function createArtistCardInfo(artistInfo) {
-  return `<div class="modal-artist-full-info container">
+  return `<div class="modal-artist-full-info">
   <h3 class="modal-artist-name">${artistInfo.strArtist}</h3>
   <img class="modal-artist-info-img" width="272" height="167" src="${artistInfo.strArtistThumb}" alt="${artistInfo.strArtist}"/>
   <ul class="modal-info-list">
