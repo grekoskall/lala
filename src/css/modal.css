@@ -92,3 +92,22 @@ body {
   text-align: center;
   margin-bottom: 16px;
 }
+
+.modal-info-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.modal-info-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.modal-info-list {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
