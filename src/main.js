@@ -10,6 +10,10 @@ const refs = {
   closeBtn: document.querySelector('.closeBtn'),
 };
 
+const globalVariables = {
+  scrollTop: 0,
+};
+
 // Function when press button
 async function lala() {
   try {
@@ -39,11 +43,13 @@ refs.gallery.addEventListener('click', event => {
   artistId = event.target.dataset.artistId;
 
   // !CALL FUNCTION CREATE INFO ABOUT ARTIST IN MODAL
+  globalVariables.scrollTop = window.scrollY;
+  document.body.classList.add('no-scroll');
   createModalInfo(artistId);
 
   // !OPEN
   refs.backgroundModal.classList.add('is-active');
-  refs.backgroundModal.scrollTop = 0;
+
   refs.gallery.classList.add('previous-content');
 
   // !CLOSE
@@ -54,6 +60,12 @@ refs.gallery.addEventListener('click', event => {
     refs.backgroundModal.classList.remove('is-active');
     refs.gallery.classList.remove('previous-content');
     clearModalInfo();
+
+    window.scrollTo({
+      top: globalVariables.scrollTop,
+      left: 0,
+      behavior: 'auto',
+    });
   });
 
   refs.backgroundModal.addEventListener('click', event => {
@@ -65,6 +77,11 @@ refs.gallery.addEventListener('click', event => {
     refs.backgroundModal.classList.remove('is-active');
     refs.gallery.classList.remove('previous-content');
     clearModalInfo();
+    window.scrollTo({
+      top: globalVariables.scrollTop,
+      left: 0,
+      behavior: 'auto',
+    });
   });
 });
 
