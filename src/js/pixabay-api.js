@@ -1,35 +1,29 @@
-// Описаний у документації
-import iziToast from 'izitoast';
-// Додатковий імпорт стилів
-import 'izitoast/dist/css/iziToast.min.css';
-
 import axios from 'axios';
 
-const pixabayApiKey = '53339801-8b3ce8e2b4688b576eb7bcf24';
-const pixabayUrl = 'https://pixabay.com/api/';
-export const perPage = 15;
+import { artistId } from '../main';
 
-export async function getImagesByQuery(query, page) {
+const url = 'https://sound-wave.b.goit.study/api/artists?limit=10&page=1';
+
+export async function getCards() {
   try {
-    const pixabayParams = {
-      key: pixabayApiKey,
-      q: query,
-      image_type: 'photo',
-      orientation: 'horizontal',
-      safesearch: true,
-      page: page,
-      per_page: perPage,
-    };
-    const response = await axios.get(pixabayUrl, { params: pixabayParams });
+    const response = await axios.get(url);
 
     return response.data;
   } catch (err) {
-    iziToast.show({
-      message: `Error: ${err}`,
-      backgroundColor: '#ef4040',
-      messageColor: '#fafafb',
-      position: 'topRight',
-      progressBarColor: '#b51b1b',
-    });
+    console.log(err);
+  }
+}
+
+export async function getArtistInfo() {
+  try {
+    let urlArtist = 'https://sound-wave.b.goit.study/api/artists/';
+
+    urlArtist += artistId;
+
+    const response = await axios.get(urlArtist);
+
+    return response.data;
+  } catch (err) {
+    console.log(err);
   }
 }

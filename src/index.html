@@ -6,23 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
   </head>
   <body>
-    <form class="form">
-      <label>
-        <input
-          type="text"
-          name="search-text"
-          placeholder="Search images..."
-          required
-        />
-      </label>
-      <button class="btn-search" type="submit">Search</button>
-    </form>
     <ul id="gallery" class="gallery"></ul>
-    <button class="btn-load-more is-hidden js-btn-load-more" type="button">
-      Load more
-    </button>
+
+    <div class="background-modal">
+      <div class="modal">
+        <button class="modal-close-btn">
+          <svg class="modal-checkbox-icon" width="32" height="32">
+            <use href="./images/sprite.svg#test-icon-x"></use>
+          </svg>
+        </button>
+        <div class="modal-content"></div>
+      </div>
+    </div>
+
     <span class="loader"></span>
     <script type="module" src="./main.js"></script>
   </body>
